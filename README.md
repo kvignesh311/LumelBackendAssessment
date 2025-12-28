@@ -30,6 +30,7 @@ Before running the project, make sure the following are installed:
 
 ## Database Setup
 
-1. Create a database in SQL Server and configure the connection string in appsettings.json:
-2. Execute the LumelAnalyticsDbSchema.sql file
-3. Scaffold the database in the code
+1. Create a database in SQL Server.
+2. Update the connection string in `appsettings.json`.
+3. Execute the `LumelAnalyticsDbSchema.sql` script.
+4. Scaffold the database using Entity Framework Core to update the entities.
