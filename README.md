@@ -31,4 +31,4 @@ Before running the project, make sure the following are installed:
 ## Database Setup
 
 1. Create a database in SQL Server and configure the connection string in appsettings.json:
-2. Execute the sql file in the repo
+2. Execute the LumelAnalyticsDbSchema.sql file
