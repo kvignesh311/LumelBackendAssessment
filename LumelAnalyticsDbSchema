@@ -1,0 +1,41 @@
+CREATE TABLE Customers (
+    Id INT NOT NULL,
+    Name NVARCHAR(100) NOT NULL,
+    Email NVARCHAR(100) NOT NULL,
+    Address NVARCHAR(200) NOT NULL,
+    CONSTRAINT UQ_Customers_Email UNIQUE (Email)
+);
+GO
+
+CREATE TABLE Products (
+    Id INT NOT NULL,
+    Name NVARCHAR(100) NOT NULL,
+    Category NVARCHAR(100) NOT NULL,
+);
+GO
+
+CREATE TABLE Orders (
+    Id INT NOT NULL,
+    CustomerId INT NOT NULL,
+    Region NVARCHAR(100) NOT NULL,
+    PaymentMethod NVARCHAR(100) NOT NULL,
+    SaleDate DATETIME NOT NULL DEFAULT GETUTCDATE(),
+    CONSTRAINT FK_Orders_Customers FOREIGN KEY (CustomerId)
+        REFERENCES Customers(Id)
+);
+GO
+
+CREATE TABLE OrderItems (
+    Id INT NOT NULL,
+    OrderId INT NOT NULL,
+    ProductId INT NOT NULL,
+    QuantitySold INT NOT NULL,
+    UnitPrice DECIMAL(10,2) NOT NULL,
+    Discount DECIMAL(10,2) NOT NULL,
+    ShippingCost DECIMAL(10,2) NOT NULL,
+    CONSTRAINT FK_OrderItems_Orders FOREIGN KEY (OrderId)
+        REFERENCES Orders(Id),
+    CONSTRAINT FK_OrderItems_Products FOREIGN KEY (ProductId)
+        REFERENCES Products(Id)
+);
+GO
