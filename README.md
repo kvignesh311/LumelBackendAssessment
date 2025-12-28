@@ -32,3 +32,4 @@ Before running the project, make sure the following are installed:
 
 1. Create a database in SQL Server and configure the connection string in appsettings.json:
 2. Execute the LumelAnalyticsDbSchema.sql file
+3. Scaffold the database in the code
